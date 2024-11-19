@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "526440664513",
+    "project_id": "my-notificatins-app",
+    "storage_bucket": "my-notificatins-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526440664513:android:f70d8e5a6bbe8d7b4eb340",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_10"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQsXdSCjLMEnYswcI5D2SMptuzpoXCfbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        // Add this to ensure the Flutter plugin is found
+        maven { url 'https://storage.googleapis.com/download.flutter.dev' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.4'  // Ensure the correct version for your project
+        // Remove duplicate flutter-gradle-plugin
+    }
+}
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    // Flutter plugin applied in the correct place (no need to declare it explicitly in the dependencies)
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader -> 
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty("flutter.versionCode")
+if (flutterVersionCode == null) {
+    flutterVersionCode = "1"
+}
+
+def flutterVersionName = localProperties.getProperty("flutter.versionName")
+if (flutterVersionName == null) {
+    flutterVersionName = "1.0"
+}
+
+android {
+    namespace = "com.example.flutter_application_10"
+    compileSdk 34
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.flutter_application_10"
+        minSdk 23
+        targetSdk 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.." // Ensure the path points to your Flutter SDK
+}
